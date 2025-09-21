@@ -26,4 +26,6 @@ Contributi, suggerimenti e segnalazioni di errori sono benvenuti. Apri una issue
 
 ## Licenza
 
-Specificare qui la licenza del progetto, se applicabile.
+Questo progetto è distribuito con licenza [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.it).
+
+Se utilizzi, modifichi o redistribuisci i contenuti di questo repository, attribuisci la paternità agli autori originali.
