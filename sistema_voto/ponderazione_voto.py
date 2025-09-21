@@ -126,9 +126,9 @@ def genera_random():
     sistema = SistemaVoto()
     
     # Genera numeri casuali per i soci
-    associazioni = random.randint(1, 20)
-    gruppi = random.randint(1, 30)
-    singoli = random.randint(0, 1000)
+    associazioni = random.randint(32, 35)
+    gruppi = random.randint(1, 5)
+    singoli = random.randint(0, 50)
     
     sistema.aggiorna_soci(associazioni, gruppi, singoli)
     
