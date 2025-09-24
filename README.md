@@ -65,15 +65,12 @@ I file `animazione_pesi.py` e `ponderazione_voto.py` sono programmi scritti in P
 	 - Sostituisci `nomefile.py` con `animazione_pesi.py` o `ponderazione_voto.py`.
 
 5. **Dipendenze**
-	 - Se il programma ti chiede di installare delle librerie aggiuntive, il messaggio di errore ti dirà quale. Per installarle, scrivi:
+	 - Prima di eseguire i programmi, installa tutte le dipendenze necessarie con il comando:
 		 ```
-		 pip install nome_libreria
+		 pip install -r requirements.txt
 		 ```
-	 - Se su Linux/macOS il comando `pip` non funziona, prova con `pip3`:
-		 ```
-		 pip3 install nome_libreria
-		 ```
-	 - (Ad esempio: `pip install matplotlib`)
+		 (Se su Linux/macOS il comando `pip` non funziona, prova con `pip3`)
+	 - Questo installerà automaticamente le librerie necessarie (ad esempio: `matplotlib`, `numpy`).
 
 ## Domande o problemi?
 
