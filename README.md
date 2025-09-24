@@ -25,11 +25,11 @@ All’interno di questa cartella troverai:
 	- **Su computer**: aprili con un editor di testo (come Notepad, Blocco Note, TextEdit, o programmi come Visual Studio Code, Atom, ecc.).
 	- **Online**: puoi caricarli su [Dillinger](https://dillinger.io/) o [StackEdit](https://stackedit.io/).
 
-- I file `.pdf` si aprono con qualsiasi lettore PDF (come Adobe Reader, browser web, ecc.).
+- I file `.pdf` si aprono con qualsiasi lettore PDF (come [Okular](https://okular.kde.org/it/), browser web, Adobe Reader, ecc.).
 
 ### 2. Guardare il video
 
-- Il file `32-associazioni_1-gruppo-singolo.mp4` si può aprire con qualsiasi programma per video (VLC, Windows Media Player, ecc.).
+- I file `.mp4` si possono aprire con qualsiasi programma per video (VLC, Windows Media Player, ecc.).
 
 ### 3. Eseguire i programmi Python
 
