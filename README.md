@@ -36,12 +36,16 @@ All’interno di questa cartella troverai:
 I file `animazione_pesi.py` e `ponderazione_voto.py` sono programmi scritti in Python. Per eseguirli:
 
 1. **Installa Python**
-	 - Vai su [python.org](https://www.python.org/downloads/) e scarica la versione per il tuo sistema operativo (Windows, Mac, Linux). Segui le istruzioni di installazione.
+	 - **Windows**: Vai su [python.org](https://www.python.org/downloads/windows/) e scarica l'installer per Windows. Durante l'installazione, **spunta la casella "Add Python to PATH"** prima di cliccare su "Install Now".
+	 - **macOS**: Su molti Mac recenti Python è già installato, ma spesso è una versione vecchia. Per una versione aggiornata, scarica l'installer da [python.org](https://www.python.org/downloads/macos/) oppure installa [Homebrew](https://brew.sh/) e poi esegui `brew install python` dal Terminale.
+	 - **Linux**: Su molte distribuzioni Python è già installato. Per installare o aggiornare Python:
+		 - **Ubuntu/Debian**: apri il Terminale e scrivi `sudo apt update && sudo apt install python3`
+		 - **Fedora**: `sudo dnf install python3`
+		 - **Altre distro**: consulta la documentazione della tua distribuzione.
 
 2. **Apri il terminale o prompt dei comandi**
-	 - Su Windows: cerca "Prompt dei comandi" o "cmd".
-	 - Su Mac: cerca "Terminale".
-	 - Su Linux: cerca "Terminale".
+	 - **Windows**: cerca "Prompt dei comandi" o "cmd".
+	 - **macOS/Linux**: cerca "Terminale".
 
 3. **Vai nella cartella dove si trova il file**
 	 - Usa il comando `cd` per entrare nella cartella, ad esempio:
@@ -54,6 +58,10 @@ I file `animazione_pesi.py` e `ponderazione_voto.py` sono programmi scritti in P
 		 ```
 		 python nomefile.py
 		 ```
+	 - Se su Linux/macOS il comando `python` non funziona, prova con `python3`:
+		 ```
+		 python3 nomefile.py
+		 ```
 	 - Sostituisci `nomefile.py` con `animazione_pesi.py` o `ponderazione_voto.py`.
 
 5. **Dipendenze**
@@ -61,13 +69,17 @@ I file `animazione_pesi.py` e `ponderazione_voto.py` sono programmi scritti in P
 		 ```
 		 pip install nome_libreria
 		 ```
+	 - Se su Linux/macOS il comando `pip` non funziona, prova con `pip3`:
+		 ```
+		 pip3 install nome_libreria
+		 ```
 	 - (Ad esempio: `pip install matplotlib`)
 
 ## Domande o problemi?
 
 Se hai dubbi, difficoltà o vuoi suggerire modifiche, puoi:
 - Scrivere una email ai responsabili del CLG
-- Aprire una "issue" su GitHub (se hai un account)
+- Aprire una "issue" su GitHub (serve creare un account)
 
 ## Licenza
 
