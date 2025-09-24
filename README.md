@@ -1,7 +1,7 @@
 
-# Regolamento CLG – Guida per Tutti
+# Regolamento CLG
 
-Benvenuto! Questo repository contiene documenti, regolamenti e strumenti per il Consiglio Locale Giovani (CLG) di Parma. Questa guida è pensata per chiunque, anche senza alcuna esperienza tecnica.
+Benvenuto! Questo repository contiene documenti, regolamenti e strumenti per il Consiglio Locale Giovani (CLG) di Parma.
 
 ## Come è organizzata la repository
 
