@@ -124,7 +124,7 @@ class SistemaVoto:
             )
 
         percentuale_favorevoli = (voti_favorevoli / peso_totale) * 100 if peso_totale > 0 else 0
-        approvata = percentuale_favorevoli >= 50
+        approvata = percentuale_favorevoli > 50
 
         return {
             "voti_favorevoli": voti_favorevoli,
