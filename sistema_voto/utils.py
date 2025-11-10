@@ -1,4 +1,5 @@
 def stampa_risultati(sistema, risultati):
+# Stampa i risultati della votazione in modo dettagliato e leggibile.
     print("=" * 60)
     print("RISULTATI DELLA VOTAZIONE")
     print("=" * 60)
@@ -25,6 +26,7 @@ def stampa_risultati(sistema, risultati):
     print()
 
 def genera_random(SistemaVoto):
+    # Genera casualmente una situazione di voto e la simula.
     import random
     sistema = SistemaVoto()
     associazioni = random.randint(32, 35)
@@ -38,6 +40,7 @@ def genera_random(SistemaVoto):
     return sistema, risultati
 
 def input_manuale(SistemaVoto):
+    # Permette all'utente di inserire manualmente i dati della votazione tramite input.
     sistema = SistemaVoto()
     print("Inserisci il numero di soci per ogni categoria:")
     associazioni = int(input("Associazioni: "))
