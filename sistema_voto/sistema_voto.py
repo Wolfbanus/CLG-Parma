@@ -37,29 +37,45 @@ class SistemaVoto:
         Applica un limite: i singoli non possono superare il potere dei collettivi (associazioni + gruppi).
         :return: tuple con pesi normalizzati e valori assoluti
         """
-        # Potere di voto totale per collettivi (associazioni + gruppi)
+        num_categorie = sum([
+            self.associazioni > 0,
+            self.gruppi_informali > 0,
+            self.persone_singole > 0
+        ])
+
+        # Caso: solo una categoria presente, voto democratico (peso 1)
+        if num_categorie == 1:
+            potere_associazioni = self.associazioni
+            potere_gruppi = self.gruppi_informali
+            potere_singoli = self.persone_singole
+            peso_totale = potere_associazioni + potere_gruppi + potere_singoli
+
+            if peso_totale == 0:
+                return 0, 0, 0, 0, 0, 0
+
+            peso_associazione_norm = (potere_associazioni / peso_totale) * 100 if potere_associazioni else 0
+            peso_gruppo_norm = (potere_gruppi / peso_totale) * 100 if potere_gruppi else 0
+            peso_singolo_norm = (potere_singoli / peso_totale) * 100 if potere_singoli else 0
+
+            return peso_associazione_norm, peso_gruppo_norm, peso_singolo_norm, potere_associazioni, potere_gruppi + potere_singoli, peso_totale
+
+        # Caso: più categorie presenti, applica pesi e limite sui singoli
         potere_collettivi = (self.associazioni * self.PESO_ASSOCIAZIONE + 
                             self.gruppi_informali * self.PESO_GRUPPO)
-        # Potere di voto totale per singoli
         potere_singoli = self.persone_singole * self.PESO_SINGOLO
 
-        # Se i singoli superano i collettivi, si applica un fattore correttivo
         if potere_singoli > potere_collettivi:
-            fattore_correttivo = potere_collettivi / potere_singoli
+            fattore_correttivo = potere_collettivi / potere_singoli if potere_singoli > 0 else 0
             peso_singolo_effettivo = self.PESO_SINGOLO * fattore_correttivo
         else:
             peso_singolo_effettivo = self.PESO_SINGOLO
 
-        # Potere effettivo dei singoli dopo la correzione
         potere_singoli_effettivo = self.persone_singole * peso_singolo_effettivo
-        # Potere totale
         peso_totale = potere_collettivi + potere_singoli_effettivo
 
-        # Se non ci sono soci, restituisce zeri
         if peso_totale == 0:
             return 0, 0, 0, 0, 0, 0
 
-        # Calcolo delle percentuali normalizzate
         peso_associazione_norm = (self.associazioni * self.PESO_ASSOCIAZIONE) / peso_totale * 100
         peso_gruppo_norm = (self.gruppi_informali * self.PESO_GRUPPO) / peso_totale * 100
         peso_singolo_norm = potere_singoli_effettivo / peso_totale * 100
@@ -85,17 +101,26 @@ class SistemaVoto:
         # Calcola la distribuzione dei pesi
         peso_a, peso_g, peso_s, potere_c, potere_s, peso_totale = self.calcola_pesi()
 
-        # Calcola i voti favorevoli totali, pesati per categoria
-        voti_favorevoli = (
-            (self.favorevoli_associazioni * self.PESO_ASSOCIAZIONE) +
-            (self.favorevoli_gruppi * self.PESO_GRUPPO) +
-            (self.favorevoli_singoli * (potere_s / self.persone_singole if self.persone_singole > 0 else 0))
-        )
+        num_categorie = sum([
+            self.associazioni > 0,
+            self.gruppi_informali > 0,
+            self.persone_singole > 0
+        ])
 
-        # Calcola la percentuale di voti favorevoli
+        if num_categorie == 1:
+            voti_favorevoli = (
+                self.favorevoli_associazioni +
+                self.favorevoli_gruppi +
+                self.favorevoli_singoli
+            )
+        else:
+            voti_favorevoli = (
+                (self.favorevoli_associazioni * self.PESO_ASSOCIAZIONE) +
+                (self.favorevoli_gruppi * self.PESO_GRUPPO) +
+                (self.favorevoli_singoli * (potere_s / self.persone_singole if self.persone_singole > 0 else 0))
+            )
+
         percentuale_favorevoli = (voti_favorevoli / peso_totale) * 100 if peso_totale > 0 else 0
-
-        # La proposta è approvata se la percentuale è almeno 50%
         approvata = percentuale_favorevoli >= 50
 
         return {
