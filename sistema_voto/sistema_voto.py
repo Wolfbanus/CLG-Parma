@@ -34,17 +34,20 @@ class SistemaVoto:
     def calcola_pesi(self):
         """
         Calcola il potere di voto totale e la distribuzione percentuale per ciascuna categoria.
-        Applica un limite: i singoli non possono superare il potere dei collettivi (associazioni + gruppi).
-        :return: tuple con pesi normalizzati e valori assoluti
+        - Se è presente una sola categoria (solo associazioni, solo gruppi informali o solo singoli), ogni membro ha peso 1 (voto democratico).
+        - Se sono presenti più categorie, si applicano i pesi e il limite: i singoli non possono superare il potere dei collettivi (associazioni + gruppi).
+        :return: tuple con (percentuale associazioni, percentuale gruppi, percentuale singoli, potere collettivi, potere singoli effettivo, peso totale)
         """
+        # Conta quante categorie hanno almeno un membro
         num_categorie = sum([
             self.associazioni > 0,
             self.gruppi_informali > 0,
             self.persone_singole > 0
         ])
 
-        # Caso: solo una categoria presente, voto democratico (peso 1)
+        # Se c'è solo una categoria, ogni membro vale 1 (nessun peso speciale)
         if num_categorie == 1:
+            # Ogni membro vale 1, non si applicano pesi
             potere_associazioni = self.associazioni
             potere_gruppi = self.gruppi_informali
             potere_singoli = self.persone_singole
