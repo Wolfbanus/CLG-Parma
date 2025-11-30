@@ -19,6 +19,10 @@ def stampa_risultati(sistema, risultati):
     print(f"  Gruppi informali: {peso_g:.2f}%")
     print(f"  Persone singole: {peso_s:.2f}%")
     print()
+    # Stampa il fattore correttivo se presente
+    if hasattr(sistema, 'fattore_correttivo') and sistema.fattore_correttivo is not None:
+        print(f"FATTORE CORRETTIVO APPLICATO: {sistema.fattore_correttivo:.4f}")
+        print()
     print("RISULTATO DELLA VOTAZIONE:")
     print(f"  Voti favorevoli: {risultati['voti_favorevoli']:.2f} / {risultati['voti_totali']:.2f}")
     print(f"  Percentuale favorevoli: {risultati['percentuale_favorevoli']:.2f}%")
