@@ -52,10 +52,6 @@ $$
 P_{singoli}^{eff} = N_S \cdot p_S^{eff}
 $$
 
-$$
-
-$$
-
 
 ## 5. Voto "uno vale uno" (caso speciale)
 Se è presente una sola categoria di soci, ogni membro ha peso 1:
@@ -78,4 +74,4 @@ $$
 
 ---
 
-**Nota:** Le formule sono scritte in sintassi $\LaTeX$ per chiarezza e precisione.
+**Nota:** Le formule sono scritte in sintassi $\LaTeX$
